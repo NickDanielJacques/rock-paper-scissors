@@ -1,12 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+ <script>
+
+    //Player and computer count
+    let playerCount = 0;
+    let computerCount = 0;
+
+    //Function for randomly assigning computer choice
+    function getComputerChoice() {
+        let n = Math.floor(Math.random() * 3);
+        if (n === 0) {
+            return "rock";
+        } else if (n === 1) {
+            return "paper";
+        } else {
+            return "scissors";
+        }
+}
+
+    //Function for playing a single round using computer choice and player choice
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === "rock" && computerSelection === "paper") {
+            return "You lose, Paper beats Rock!";
+        }   else if (playerSelection === "rock" && computerSelection === "scissors") {
+            return "You win, Rock beats Scissors!";
+        }   else if (playerSelection === "paper" && computerSelection === "scissors") {
+            return "You lose, Scissors beats Paper!";
+        }   else if (playerSelection === "paper" && computerSelection === "rock") {
+            return "You win, Paper beats Rock!";
+        }   else if (playerSelection === "scissors" && computerSelection === "rock") {
+            return "You lose, Rock beats Scissors!";
+        }   else if (playerSelection === "scissors" && computerSelection === "paper") {
+            return "You win, Scissors beats Paper!";
+        }   else if (playerSelection === computerSelection) {
+            return "This round is a tie";
+        }
+}
+
+    //Function for playing a 5 round game and keeps score throughout
+    function game() {
+
+        for (let i = 0; i < 5; i++) {
+            const playerSelection = prompt("Choose between rock, paper, or scissors ").toLowerCase();
+            const computerSelection = getComputerChoice();
+            playRound(playerSelection, computerSelection);
+            console.log(playRound(playerSelection, computerSelection));
+            if (playerSelection === "rock" && computerSelection === "paper") {
+                console.log(`Player: ${playerCount} Computer: ${++computerCount}`);
+        }   else if (playerSelection === "rock" && computerSelection === "scissors") {
+                console.log(`Player: ${++playerCount} Computer: ${computerCount}`);
+        }   else if (playerSelection === "paper" && computerSelection === "scissors") {
+                console.log(`Player: ${playerCount} Computer: ${++computerCount}`);
+        }   else if (playerSelection === "paper" && computerSelection === "rock") {
+                console.log(`Player: ${++playerCount} Computer: ${computerCount}`);
+        }   else if (playerSelection === "scissors" && computerSelection === "rock") {
+                console.log(`Player: ${playerCount} Computer: ${++computerCount}`);
+        }   else if (playerSelection === "scissors" && computerSelection === "paper") {
+                console.log(`Player: ${++playerCount} Computer: ${computerCount}`);
+        }   else if (playerSelection === computerSelection) {
+                console.log(`Player: ${playerCount} Computer: ${computerCount}`);
+        }
+}       
+        if (playerCount > computerCount) {
+            console.log("The human wins. Congratulations, you saved humanity");
+        } else if (playerCount < computerCount) {
+            console.log("The computer wins. Oh no, the computers have taken over");
+        } else {
+            console.log("The game is a tie. The battle for supremacy between humans and computers goes on");
+        }
+}
+
+ </script>
+
+
+
+
+
+
+if (playerSelection === "rock" && computerSelection === "paper") {
+    return playerCount++;
+}   else if (playerSelection === "rock" && computerSelection === "scissors") {
+    return computerCount++;
+}   else if (playerSelection === "paper" && computerSelection === "scissors") {
+    return playerCount++;
+}   else if (playerSelection === "paper" && computerSelection === "rock") {
+    return computerCount++;
+}   else if (playerSelection === "scissors" && computerSelection === "rock") {
+    return playerCount++;
+}   else if (playerSelection === "scissors" && computerSelection === "paper") {
+    return computerCount++;
+}   else if (playerSelection === computerSelection) {
+    return playerCount + computerCount;
+}
